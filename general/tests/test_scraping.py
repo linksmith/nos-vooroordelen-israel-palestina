@@ -2,7 +2,7 @@ import datetime as dt
 from string import punctuation
 import re
 
-from scraper.bbc_scraper import BBCScraper
+from scraper.nos_scraper import NOSScraper
 from selenium.webdriver.chrome.service import Service
 
 
@@ -64,7 +64,7 @@ def test_livefeed_scraper():
     lf_url = "https://www.bbc.com/news/live//world-middle-east-67246761/page/1"
 
     chrome = Service()
-    scraper = BBCScraper(service=chrome)
+    scraper = NOSScraper(service=chrome)
     scraper.initialise_browser()
 
     page_results = scraper.return_entities(lf_url, article_handler=_return_article_info, name="li",

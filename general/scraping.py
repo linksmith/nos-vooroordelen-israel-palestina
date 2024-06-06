@@ -5,7 +5,7 @@ from datetime import datetime
 from tqdm import tqdm
 import argparse
 
-from scraper.bbc_scraper import BBCScraper
+from scraper.bbc_scraper import NOSScraper
 from selenium.webdriver.chrome.service import Service
 from general import load_json, save_json, return_article_dataset, get_article_info
 
@@ -18,7 +18,7 @@ def scrape_livefeed(live_feeds: json, base_url: str):
     :return:
     """
     chrome = Service()
-    scraper = BBCScraper(service=chrome)
+    scraper = NOSScraper(service=chrome)
     scraper.initialise_browser()
 
     for livefeed, livefeed_url in live_feeds.items():
@@ -40,7 +40,7 @@ def scrape_topics(all_topics: json, base_url: str, ignore: bool = True):
     :return:
     """
     chrome = Service()
-    scraper = BBCScraper(service=chrome)
+    scraper = NOSScraper(service=chrome)
     scraper.initialise_browser()
 
     # collect all the articles from different topics - keep in mind we ignire live topics (which are big)
@@ -190,7 +190,7 @@ def scrape_search(search_term: str):
     base_url_topic = 'https://www.bbc.co.uk/search'
 
     chrome = Service()
-    scraper = BBCScraper(service=chrome)
+    scraper = NOSScraper(service=chrome)
     scraper.initialise_browser()
 
     search_data = scraper.return_entities_from_search(base_url_topic, search_term)

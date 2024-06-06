@@ -13,7 +13,7 @@ import datetime as dt
 from scraper.base_scraper import Scraper
 
 
-class BBCScraper(Scraper):
+class NOSScraper(Scraper):
 
     def _load_url(self, url, browser=None):
         """

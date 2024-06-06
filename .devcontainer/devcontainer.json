@@ -1,0 +1,32 @@
+  {
+    "name": "Python Dev Container with Jupyter",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash",
+      "python.pythonPath": "/usr/local/bin/python",
+      "editor.formatOnSave": true
+    },
+    "extensions": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-azuretools.vscode-docker"
+    ],
+    "features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true
+		}
+	},
+    "forwardPorts": [8888],
+    "mounts": [
+      "source=/Users/jeremycs/Development/machinelearning/nos-vooroordelen-israel-palestina,target=/workspace,type=bind"
+    ],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "remoteUser": "vscode"
+  }
+  
